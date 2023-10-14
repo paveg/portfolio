@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts"
-import { ContentType } from "recharts/types/component/Tooltip"
+import { TooltipProps } from "recharts/types/component/Tooltip"
 
 import { Language } from "@/types/github"
 import { useLanguageData } from "@/hooks/useLanguageData"
@@ -23,23 +23,25 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
+import { NameType, ValueType } from "recharts/types/component/DefaultTooltipContent"
 
 type LanguageData = {
   name: keyof Language
   total: number
 }
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+  const l = label as string
   if (active && payload && payload.length) {
     return (
       <Card className="w-[150px] sm:w-[250px]">
         <CardContent>
           <CardHeader>
             <CardTitle>
-              <Badge>{label}</Badge>
+              <Badge>{l}</Badge>
             </CardTitle>
             <CardDescription className="hidden sm:inline">
-              Amount of {label} code in the repository most recently pushed
+              Amount of {l} code in the repository most recently pushed
             </CardDescription>
           </CardHeader>
           <div className="text-center">

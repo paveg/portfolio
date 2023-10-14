@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query"
 import ky from "ky-universal"
 
-import { Language } from "@/types/github"
+import { Language, Repository } from "@/types/github"
 
 const fetchLanguageData = async () => {
   const parsed = await ky(
     "https://api.github.com/users/paveg/repos?per_page=30&sort=pushed"
-  ).json()
-  const notForked = parsed.filter((repo: any) => !repo.fork)
+  ).json() as Repository[]
+  const notForked = parsed.filter((repo) => !repo.fork)
   const languages: Language[] = await Promise.all(
-    notForked.map((repo: any) => ky(repo.languages_url).json())
-  )
+    notForked.map((repo) => ky(repo.languages_url).json())
+  ) as Language[]
   return languages
 }
 
