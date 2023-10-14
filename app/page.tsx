@@ -2,9 +2,9 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import { ResumeTitle } from "@/components/resume/title"
-import { ResumeSummary } from "@/components/resume/summary"
 import { ResumeSkill } from "@/components/resume/skill"
+import { ResumeSummary } from "@/components/resume/summary"
+import { ResumeTitle } from "@/components/resume/title"
 
 export default function IndexPage() {
   return (
