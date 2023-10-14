@@ -10,6 +10,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts"
+import {
+  NameType,
+  ValueType,
+} from "recharts/types/component/DefaultTooltipContent"
 import { TooltipProps } from "recharts/types/component/Tooltip"
 
 import { Language } from "@/types/github"
@@ -23,14 +27,17 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { NameType, ValueType } from "recharts/types/component/DefaultTooltipContent"
 
 type LanguageData = {
   name: keyof Language
   total: number
 }
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+const CustomTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<ValueType, NameType>) => {
   const l = label as string
   if (active && payload && payload.length) {
     return (
