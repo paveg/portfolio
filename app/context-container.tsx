@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from "react"
+import { FC, ReactNode, useState } from "react"
 import {
   DehydratedState,
   Hydrate,
@@ -8,9 +8,9 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query"
 
-export interface ContextContainerProps {
+interface ContextContainerProps {
   state?: DehydratedState
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const ContextContainer: FC<ContextContainerProps> = ({

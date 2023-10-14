@@ -1,12 +1,13 @@
 "use client"
 
+import { FC } from "react"
 import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
   Tooltip as RechartTooltip,
   ResponsiveContainer,
+  TooltipProps,
   XAxis,
   YAxis,
 } from "recharts"
@@ -14,7 +15,6 @@ import {
   NameType,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent"
-import { TooltipProps } from "recharts/types/component/Tooltip"
 
 import { Language } from "@/types/github"
 import { useLanguageData } from "@/hooks/useLanguageData"
@@ -33,26 +33,28 @@ type LanguageData = {
   total: number
 }
 
-const CustomTooltip = ({
+const CustomTooltip: FC = ({
   active,
   payload,
   label,
 }: TooltipProps<ValueType, NameType>) => {
-  const l = label as string
   if (active && payload && payload.length) {
     return (
       <Card className="w-[150px] sm:w-[250px]">
         <CardContent>
           <CardHeader>
             <CardTitle>
-              <Badge>{l}</Badge>
+              <Badge>{label ?? ""}</Badge>
             </CardTitle>
             <CardDescription className="hidden sm:inline">
-              Amount of {l} code in the repository most recently pushed
+              Amount of {label ?? ""} code in the repository most recently
+              pushed
             </CardDescription>
           </CardHeader>
           <div className="text-center">
-            <p>{payload[0].value} bytes</p>
+            <p>
+              {payload[0]?.value} bytes
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -62,10 +64,11 @@ const CustomTooltip = ({
   return null
 }
 
-export const LanguageBarChart = () => {
-  const { data, isLoading } = useLanguageData()
+export const LanguageBarChart: FC = () => {
+  const { data, isLoading, error } = useLanguageData()
 
   if (isLoading) return <Skeleton className="h-60 w-full" />
+  if (error) return <>Error...</>
   const result = data?.reduce(
     (acc, cur) => {
       Object.keys(cur).forEach((name) => {

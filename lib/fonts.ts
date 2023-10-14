@@ -1,6 +1,6 @@
-import { Noto_Sans_Javanese } from "next/font/google"
+import { Noto_Sans_JP } from "next/font/google"
 
-export const fontSans = Noto_Sans_Javanese({
+export const fontSans = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-sans",
 })
