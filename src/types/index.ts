@@ -6,6 +6,8 @@ export interface Project {
   description: string
   github: string
   demo: string
+  period?: string
+  role?: string
 }
 
 export interface Section {

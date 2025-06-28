@@ -16,51 +16,69 @@ export function ProjectsSection() {
           <li key={project.name}>
             <Card className="bg-gray-800 border-gray-700 p-4 hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900">
               <article className="space-y-3">
-                <header className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-blue-400">
-                    {project.name}
-                  </h2>
-                  <div className="flex gap-2">
-                    {project.github && project.github !== "#" && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-                        onClick={() =>
-                          window.open(
-                            project.github,
-                            "_blank",
-                            "noopener,noreferrer",
-                          )
-                        }
-                        aria-label={`View source code for ${project.name}`}
-                      >
-                        <Github className="w-4 h-4 mr-1" aria-hidden="true" />
-                        Code
-                      </Button>
-                    )}
-                    {project.demo && project.demo !== "#" && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-                        onClick={() =>
-                          window.open(
-                            project.demo,
-                            "_blank",
-                            "noopener,noreferrer",
-                          )
-                        }
-                        aria-label={`View live demo of ${project.name}`}
-                      >
-                        <ExternalLink
-                          className="w-4 h-4 mr-1"
-                          aria-hidden="true"
-                        />
-                        Demo
-                      </Button>
-                    )}
+                <header>
+                  <div className="flex items-center justify-between mb-2">
+                    <h2 className="text-lg font-semibold text-blue-400">
+                      {project.name}
+                    </h2>
+                    <div className="flex gap-2">
+                      {project.github && project.github !== "#" && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                          onClick={() =>
+                            window.open(
+                              project.github,
+                              "_blank",
+                              "noopener,noreferrer",
+                            )
+                          }
+                          aria-label={`View source code for ${project.name}`}
+                        >
+                          <Github className="w-4 h-4 mr-1" aria-hidden="true" />
+                          Code
+                        </Button>
+                      )}
+                      {project.demo && project.demo !== "#" && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                          onClick={() =>
+                            window.open(
+                              project.demo,
+                              "_blank",
+                              "noopener,noreferrer",
+                            )
+                          }
+                          aria-label={`View live demo of ${project.name}`}
+                        >
+                          <ExternalLink
+                            className="w-4 h-4 mr-1"
+                            aria-hidden="true"
+                          />
+                          Demo
+                        </Button>
+                      )}
+                    </div>
                   </div>
+                  {(project.period || project.role) && (
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                      {project.period && (
+                        <span className="flex items-center gap-1">
+                          <span className="text-gray-500">Period:</span>
+                          {project.period}
+                        </span>
+                      )}
+                      {project.role && (
+                        <span className="flex items-center gap-1">
+                          <span className="text-gray-500">Role:</span>
+                          {project.role}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </header>
                 <p className="text-gray-300 text-sm">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
