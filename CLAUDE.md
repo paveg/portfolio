@@ -32,6 +32,11 @@ This is a terminal-themed portfolio website built with React 19, TypeScript, and
 
 Note: This project uses Biome instead of ESLint/Prettier for linting and formatting.
 
+### Testing
+- `pnpm test` - Run tests in watch mode
+- `pnpm test:run` - Run tests once
+- `pnpm test:ui` - Run tests with UI interface
+
 ## Architecture
 
 ### Project Structure
