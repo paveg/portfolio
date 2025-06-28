@@ -9,34 +9,43 @@ export function AboutSection() {
       <div className="pl-4 space-y-3 text-gray-300">
         <h2 className="text-xl font-bold text-blue-400"># About Me</h2>
         <p>
-          Hello! I'm Ryota Ikezawa (池澤 涼太), an Engineering Manager and Full
-          Stack Engineer with 9+ years of software engineering experience,
-          including 4+ years as a full stack engineer focused on open web
-          technologies.
+          Hello! I'm Ryota Ikezawa, a Technical Lead and Full Stack Engineer
+          with 10+ years of experience in software development. My journey spans
+          from network infrastructure to modern web applications, with expertise
+          in building scalable financial and HR platforms.
         </p>
         <p>
-          Currently working at freee k.k. as an Engineering Manager, I lead
-          teams developing innovative HR applications and employee portals. I
-          have extensive leadership experience managing up to 5 group members
-          and fostering productive, innovative environments.
+          Currently at freee K.K. as Technical Lead, I focus on pure technical
+          management for our HR Integration Platform. Previously served as
+          Engineering Manager, leading teams while maintaining hands-on
+          technical contributions across multiple critical projects.
         </p>
         <div className="mt-4">
           <span className="text-yellow-400">## Experience Highlights</span>
           <ul className="mt-2 space-y-1 list-disc list-inside">
             <li>
               Led team of 3 engineers developing comprehensive employee portal
-              (4 months)
-            </li>
-            <li>Managed global team of 4 engineers across multiple projects</li>
-            <li>
-              Successfully executed technical debt migration with legacy data
-              model integration
+              within 4 months while maintaining hands-on development
             </li>
             <li>
-              Developed and scaled services supporting 500+ tax accountants
+              Managed global team of 4 engineers executing technical debt
+              migration and legacy system integration
             </li>
             <li>
-              Spearheaded "freeeデータ化サービス" launch as Technical Lead
+              Pioneered financial services platform from concept to launch,
+              managing entire development lifecycle
+            </li>
+            <li>
+              Architected data aggregation service handling financial
+              institution integrations, reducing user inquiries by 30%
+            </li>
+            <li>
+              Scaled advisor platform to support 500+ tax accountants through
+              strategic re-architecture
+            </li>
+            <li>
+              Contributed to Rails/Ruby upgrades and Paperclip to ActiveStorage
+              migration as a contractor at acall inc.
             </li>
           </ul>
         </div>
@@ -44,12 +53,27 @@ export function AboutSection() {
           <span className="text-yellow-400">## Education</span>
           <div className="mt-2 text-sm">
             <p>
-              <strong>Senshu University (専修大学)</strong> - Bachelor of
-              Political Science (政治学)
+              <strong>Senshu University</strong> - Bachelor of Political Science
             </p>
             <p className="text-gray-400">Apr 2012 - Mar 2015</p>
             <p className="mt-1">
               Specialized in Western political history and political thought
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <span className="text-yellow-400">## Career Journey</span>
+          <div className="mt-2 text-sm space-y-2">
+            <p>
+              Started as a Network Engineer migrating on-premise infrastructure
+              to AWS, then transitioned to software development at freee K.K. in
+              2015.
+            </p>
+            <p>
+              Over the past decade, I've grown from individual contributor to
+              technical leadership roles, building expertise in Go, Ruby, React,
+              and cloud-native architectures while delivering critical financial
+              and HR solutions.
             </p>
           </div>
         </div>
